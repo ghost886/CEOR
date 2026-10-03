@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ceor-grounding"
+version = "0.1.0"
+description = "Probe-guided occlusion for uncertainty in visual grounding"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+dependencies = [
+  "numpy>=1.26,<3", "scipy>=1.10,<2", "scikit-learn>=1.2,<2",
+  "torch>=2.6,<3", "torchvision>=0.21", "transformers==5.16.1",
+  "accelerate>=1.4,<2", "datasets>=3,<5", "evaluate>=0.4,<0.5",
+  "Pillow>=10.4,<12", "joblib>=1.3", "tqdm>=4.66",
+  "matplotlib>=3.7", "tenacity>=8", "ijson>=3.2", "sentencepiece>=0.2",
+]
+
+[project.optional-dependencies]
+api = ["openai>=1.0", "zai-sdk"]
+semantic = ["sentence-transformers>=3"]
+logging = ["wandb>=0.18"]
+dev = ["pytest>=7"]
+
+[project.scripts]
+ceor = "ceor.__main__:cli"
+
+[tool.setuptools]
+py-modules = ["generate_answers", "compute_uncertainty_measures", "analyze_results"]
+license-files = ["LICENSE", "THIRD_PARTY_NOTICES.md", "third_party/*_LICENSE"]
+
+[tool.setuptools.packages.find]
+include = ["ceor*", "uncertainty*", "experiments*", "scripts*"]
+exclude = ["tests*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"

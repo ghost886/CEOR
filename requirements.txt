@@ -1,0 +1,2 @@
+# Editable install includes all core dependencies from pyproject.toml.
+-e .[dev]

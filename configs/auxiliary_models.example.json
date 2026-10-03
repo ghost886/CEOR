@@ -1,0 +1,31 @@
+{
+  "fail_fast": true,
+  "models": [
+    {
+      "name": "auxiliary_a",
+      "type": "openai_compatible",
+      "model": "REPLACE_WITH_VISION_MODEL_A",
+      "base_url": "https://your-provider-a.example/v1",
+      "api_key_env": "AUXILIARY_A_API_KEY",
+      "max_tokens": 128,
+      "weight": 1.0
+    },
+    {
+      "name": "auxiliary_b",
+      "type": "openai_compatible",
+      "model": "REPLACE_WITH_VISION_MODEL_B",
+      "base_url": "https://your-provider-b.example/v1",
+      "api_key_env": "AUXILIARY_B_API_KEY",
+      "max_tokens": 128,
+      "weight": 1.0
+    },
+    {
+      "name": "auxiliary_c",
+      "type": "huggingface",
+      "model": "REPLACE_WITH_LOCAL_AUXILIARY_MODEL_PATH",
+      "model_class": "Qwen3VLForConditionalGeneration",
+      "max_new_tokens": 128,
+      "weight": 1.0
+    }
+  ]
+}

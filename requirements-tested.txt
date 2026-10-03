@@ -1,0 +1,14 @@
+# Critical package versions used for this extraction's offline validation.
+# PyTorch in the local test environment carried the +cu124 wheel suffix.
+-r requirements.txt
+torch==2.6.0
+torchvision==0.21.0
+transformers==5.16.1
+accelerate==1.14.0
+numpy==2.2.6
+scipy==1.15.3
+scikit-learn==1.7.2
+datasets==4.5.0
+evaluate==0.4.6
+Pillow==11.3.0
+pytest==9.1.1
